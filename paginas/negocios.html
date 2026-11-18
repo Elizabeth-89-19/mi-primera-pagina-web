@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Negocios | Impacto de las Tecnologías Web</title>
+
+    <link rel="stylesheet" href="../css/estilo.css">
+
+    <style>
+        /* DISEÑO CORREGIDO DE LAS TARJETAS */
+
+        .areas-negocios.negocios-corregidos .contenedor-negocios {
+            display: grid !important;
+            grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+            gap: 15px !important;
+            align-items: stretch;
+        }
+
+        .areas-negocios.negocios-corregidos .tarjeta-negocio {
+            display: flex !important;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 10px;
+            min-width: 0;
+            min-height: 220px;
+            padding: 22px !important;
+            margin: 0 !important;
+            box-sizing: border-box;
+            background: #142B49;
+            border-radius: 16px;
+        }
+
+        .areas-negocios.negocios-corregidos .numero-negocio {
+            color: #5FFFE0;
+            font-size: 23px;
+            font-weight: bold;
+            margin: 0;
+        }
+
+        .areas-negocios.negocios-corregidos .icono-negocio {
+            display: block;
+            font-size: 24px;
+            margin: 0;
+        }
+
+        .areas-negocios.negocios-corregidos .tarjeta-negocio h3 {
+            color: white;
+            font-size: 19px;
+            text-align: left;
+            margin: 0;
+        }
+
+        .areas-negocios.negocios-corregidos
+        .tarjeta-negocio p.resumen-negocio {
+            display: block !important;
+            color: #F8FAFC;
+            font-size: 14px;
+            line-height: 1.5;
+            margin: 0 0 10px;
+        }
+
+        /* Información oculta en las tarjetas pequeñas */
+        .areas-negocios.negocios-corregidos .contenido-oculto {
+            display: none !important;
+        }
+
+        /* BOTÓN VER INFORMACIÓN */
+        .areas-negocios.negocios-corregidos .indicador-clic {
+            display: inline-flex;
+            position: relative;
+            align-items: center;
+            justify-content: center;
+            align-self: flex-start;
+            margin-top: auto;
+            padding: 11px 18px;
+            border: none;
+            border-radius: 9px;
+            background: #2563EB;
+            color: #FFFFFF;
+            font-size: 14px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .areas-negocios.negocios-corregidos .indicador-clic:hover {
+            background: #1D4ED8;
+        }
+
+        .areas-negocios.negocios-corregidos .indicador-clic:focus-visible {
+            outline: 3px solid #5FFFE0;
+            outline-offset: 4px;
+        }
+
+        /* Cursor blanco animado */
+        .areas-negocios.negocios-corregidos .cursor-animado {
+            position: absolute;
+            right: -9px;
+            bottom: -12px;
+            width: 22px;
+            height: 28px;
+            background: white;
+
+            clip-path: polygon(
+                0 0,
+                0 100%,
+                25% 75%,
+                50% 100%,
+                70% 90%,
+                45% 66%,
+                100% 65%
+            );
+
+            animation: cursor-negocio 1.8s ease-in-out infinite;
+            pointer-events: none;
+        }
+
+        @keyframes cursor-negocio {
+            0%, 100% {
+                transform: translate(12px, 12px) scale(1);
+            }
+
+            45% {
+                transform: translate(0, 0) scale(1);
+            }
+
+            60% {
+                transform: translate(0, 0) scale(0.8);
+            }
+
+            75% {
+                transform: translate(5px, 5px) scale(1);
+            }
+        }
+
+        /* VENTANA EMERGENTE */
+
+        dialog.ventana-negocio {
+            position: fixed !important;
+            inset: 0 !important;
+            margin: auto !important;
+
+            width: min(950px, calc(100vw - 32px)) !important;
+            max-width: calc(100vw - 32px) !important;
+            max-height: 85vh !important;
+
+            padding: 35px !important;
+            box-sizing: border-box !important;
+            overflow-x: hidden !important;
+            overflow-y: auto !important;
+
+            background: #142B49 !important;
+            color: white;
+            border: 2px solid #2DD4BF;
+            border-radius: 22px;
+            box-shadow: 0 25px 70px rgba(0, 0, 0, 0.5);
+        }
+
+        dialog.ventana-negocio::backdrop {
+            background: rgba(5, 10, 22, 0.72);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+
+        dialog.ventana-negocio h2 {
+            color: #5FFFE0;
+            font-size: 29px;
+            margin: 0 45px 25px 0;
+        }
+
+        /* FOTO A LA IZQUIERDA Y TEXTO A LA DERECHA */
+
+        dialog.ventana-negocio .detalle-negocio {
+            display: grid !important;
+            grid-template-columns: minmax(0, 38%) minmax(0, 1fr) !important;
+            gap: 28px !important;
+            align-items: center;
+            width: 100%;
+            min-width: 0;
+        }
+
+        dialog.ventana-negocio .detalle-negocio img.imagen-modal {
+            display: block !important;
+            width: 100% !important;
+            max-width: 100% !important;
+            height: 300px !important;
+            object-fit: cover !important;
+            border-radius: 15px !important;
+            margin: 0 !important;
+        }
+
+        dialog.ventana-negocio .detalle-texto {
+            min-width: 0;
+        }
+
+        dialog.ventana-negocio .detalle-texto p {
+            display: block !important;
+            color: #F8FAFC;
+            font-size: 16px;
+            line-height: 1.7;
+            margin: 0 0 15px;
+        }
+
+        /* BOTÓN CERRAR */
+
+        dialog.ventana-negocio .cerrar-ventana {
+            position: absolute;
+            top: 16px;
+            right: 18px;
+            width: 42px;
+            height: 42px;
+            border: none;
+            border-radius: 50%;
+            background: #294866;
+            color: white;
+            font-size: 26px;
+            cursor: pointer;
+        }
+
+        dialog.ventana-negocio .cerrar-ventana:hover {
+            background: #2DD4BF;
+            color: #0B1220;
+        }
+
+        /* RESPONSIVE */
+
+        @media (max-width: 850px) {
+            .areas-negocios.negocios-corregidos .contenedor-negocios {
+                grid-template-columns: 1fr !important;
+            }
+
+            dialog.ventana-negocio .detalle-negocio {
+                grid-template-columns: 1fr !important;
+            }
+
+            dialog.ventana-negocio .detalle-negocio img.imagen-modal {
+                height: 220px !important;
+            }
+
+            dialog.ventana-negocio {
+                padding: 24px 20px !important;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .areas-negocios.negocios-corregidos .cursor-animado {
+                animation: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>Las Tecnologías Web en los Negocios</h1>
+
+        <nav>
+            <a href="../index.html">Inicio</a>
+            <a href="sociedad.html">Sociedad</a>
+            <a href="negocios.html" class="activo"
+               aria-current="page">Negocios</a>
+            <a href="contacto.html">Contacto</a>
+        </nav>
+    </header>
+
+    <main>
+
+        <!-- INTRODUCCIÓN CON VIDEO -->
+
+        <section class="introduccion-negocios transformacion-negocios tarjeta-interactiva">
+
+            <div class="contenido-transformacion">
+
+                <div class="texto-transformacion">
+
+                    <h2>La transformación digital de los negocios</h2>
+
+                    <p>
+                        Las tecnologías web han transformado
+                        la forma en que las empresas desarrollan
+                        sus actividades, comercializan productos
+                        y se relacionan con sus clientes.
+                    </p>
+
+                    <p>
+                        El comercio electrónico, las plataformas
+                        de gestión empresarial y las herramientas
+                        de marketing digital permiten mejorar
+                        la organización, automatizar procesos
+                        y facilitar la comunicación con los clientes.
+                    </p>
+
+                    <p>
+                        Sin embargo, la transformación digital
+                        también presenta desafíos relacionados
+                        con la ciberseguridad, la protección
+                        de datos personales y las competencias
+                        tecnológicas.
+                    </p>
+
+                </div>
+
+                <video class="video-transformacion"
+                       autoplay muted loop playsinline>
+
+                    <source
+                        src="../videos/transformacion-negocios.mp4"
+                        type="video/mp4">
+
+                    Tu navegador no admite videos HTML5.
+
+                </video>
+
+            </div>
+
+        </section>
+
+        <!-- ÁREAS DE IMPACTO EN LOS NEGOCIOS -->
+
+        <section class="areas-negocios negocios-corregidos">
+
+            <h2>El impacto de las tecnologías web en los negocios</h2>
+
+            <p class="ayuda-tarjetas">
+                🖱️ Haz clic en una tarjeta para ampliar la información.
+            </p>
+
+            <div class="contenedor-negocios">
+
+                <!-- TARJETA 1 -->
+
+                <article class="tarjeta-negocio tarjeta-interactiva"
+                         data-foto="../imagenes/comercio-electronico.jpg"
+                         data-alt="Comercio electrónico y compras por internet">
+
+                    <span class="numero-negocio">01</span>
+                    <span class="icono-negocio" aria-hidden="true">🛒</span>
+
+                    <h3>Comercio electrónico</h3>
+
+                    <p class="resumen-negocio">
+                        Ventas, tiendas virtuales y pagos digitales.
+                    </p>
+
+                    <button type="button" class="indicador-clic">
+                        Ver información
+                        <span class="cursor-animado"
+                              aria-hidden="true"></span>
+                    </button>
+
+                    <div class="contenido-oculto" hidden>
+
+                        <p>
+                            El comercio electrónico permite
+                            a las empresas vender productos
+                            y servicios a través de internet,
+                            llegando a clientes de diferentes lugares.
+                        </p>
+
+                        <p>
+                            Además, facilita la gestión de pedidos,
+                            el seguimiento de compras y la atención
+                            al cliente. Para generar confianza,
+                            las empresas deben utilizar plataformas
+                            seguras y proteger la información
+                            financiera de los compradores.
+                        </p>
+
+                        <p>
+                            Entre sus beneficios destacan las tiendas
+                            virtuales, los pagos electrónicos,
+                            la disponibilidad de servicios en línea
+                            y la ampliación del mercado.
+                        </p>
+
+                    </div>
+
+                </article>
+
+                <!-- TARJETA 2 -->
+
+                <article class="tarjeta-negocio tarjeta-interactiva"
+                         data-foto="../imagenes/marketink-digital.jpg"
+                         data-alt="Herramientas de marketing digital">
+
+                    <span class="numero-negocio">02</span>
+                    <span class="icono-negocio" aria-hidden="true">📣</span>
+
+                    <h3>Marketing digital</h3>
+
+                    <p class="resumen-negocio">
+                        Publicidad en internet y conexión con clientes.
+                    </p>
+
+                    <button type="button" class="indicador-clic">
+                        Ver información
+                        <span class="cursor-animado"
+                              aria-hidden="true"></span>
+                    </button>
+
+                    <div class="contenido-oculto" hidden>
+
+                        <p>
+                            El marketing digital utiliza redes sociales,
+                            buscadores y plataformas publicitarias
+                            para promocionar productos y servicios.
+                        </p>
+
+                        <p>
+                            Una de sus principales ventajas es la
+                            posibilidad de medir el alcance de los
+                            anuncios, analizar las interacciones
+                            de los usuarios y adaptar las estrategias
+                            publicitarias según los resultados.
+                        </p>
+
+                        <p>
+                            Estas herramientas permiten llegar
+                            a públicos específicos, mejorar la
+                            comunicación con los clientes,
+                            optimizar recursos y fortalecer
+                            la presencia digital de las empresas.
+                        </p>
+
+                    </div>
+
+                </article>
+
+                <!-- TARJETA 3 -->
+
+                <article class="tarjeta-negocio tarjeta-interactiva"
+                         data-foto="../imagenes/gestion-empresarial.jpg"
+                         data-alt="Herramientas digitales para la gestión empresarial">
+
+                    <span class="numero-negocio">03</span>
+                    <span class="icono-negocio" aria-hidden="true">📈</span>
+
+                    <h3>Gestión empresarial</h3>
+
+                    <p class="resumen-negocio">
+                        Automatización, organización y análisis de datos.
+                    </p>
+
+                    <button type="button" class="indicador-clic">
+                        Ver información
+                        <span class="cursor-animado"
+                              aria-hidden="true"></span>
+                    </button>
+
+                    <div class="contenido-oculto" hidden>
+
+                        <p>
+                            Las tecnologías web facilitan la
+                            administración empresarial mediante
+                            sistemas de gestión, almacenamiento
+                            en la nube y herramientas de colaboración.
+                        </p>
+
+                        <p>
+                            Los sistemas empresariales basados en
+                            la web permiten administrar inventarios,
+                            organizar información, generar reportes
+                            y coordinar actividades entre diferentes
+                            departamentos.
+                        </p>
+
+                        <p>
+                            Estas soluciones ayudan a organizar
+                            documentos, automatizar procesos,
+                            analizar información y mejorar
+                            la toma de decisiones basada en datos.
+                        </p>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+        </section>
+
+<section class="comparativa-negocios">
+
+    <h2>Comparación de las tecnologías web en los negocios</h2>
+
+    <p>
+        Las tecnologías web ofrecen diferentes soluciones
+        para mejorar las actividades empresariales.
+        La siguiente tabla presenta sus principales
+        aplicaciones, beneficios y desafíos.
+    </p>
+
+    <div class="tabla-contenedor">
+        <table>
+            <thead>
+                <tr>
+                    <th scope="col">Área</th>
+                    <th scope="col">Aplicaciones</th>
+                    <th scope="col">Beneficios</th>
+                    <th scope="col">Desafíos</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <th scope="row">Comercio electrónico</th>
+                    <td>Tiendas virtuales y pagos digitales.</td>
+                    <td>Mayor alcance comercial y ventas en línea.</td>
+                    <td>Seguridad de pagos y protección de datos.</td>
+                </tr>
+
+                <tr>
+                    <th scope="row">Marketing digital</th>
+                    <td>Redes sociales, buscadores y publicidad.</td>
+                    <td>Promoción de productos y segmentación de clientes.</td>
+                    <td>Competencia digital y privacidad.</td>
+                </tr>
+
+                <tr>
+                    <th scope="row">Gestión empresarial</th>
+                    <td>Sistemas de gestión y almacenamiento en la nube.</td>
+                    <td>Automatización y organización de información.</td>
+                    <td>Capacitación y ciberseguridad.</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</section>
+
+    </main>
+
+    <!-- VENTANA EMERGENTE -->
+
+    <dialog id="ventana-negocio"
+            class="ventana-negocio"
+            aria-labelledby="titulo-ventana">
+
+        <button type="button" class="cerrar-ventana"
+                aria-label="Cerrar ventana">
+            &times;
+        </button>
+
+<h2 id="titulo-ventana">Información del negocio</h2>
+        <div id="informacion-ventana"></div>
+
+    </dialog>
+
+    <!-- JAVASCRIPT PARA ABRIR LA INFORMACIÓN -->
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+
+            const ventana = document.getElementById("ventana-negocio");
+            const titulo = document.getElementById("titulo-ventana");
+            const informacion = document.getElementById("informacion-ventana");
+            const botonCerrar = document.querySelector(".cerrar-ventana");
+
+            const tarjetas = document.querySelectorAll(
+                ".areas-negocios .tarjeta-negocio"
+            );
+
+            tarjetas.forEach(function (tarjeta) {
+
+                const boton = tarjeta.querySelector(".indicador-clic");
+
+                boton.addEventListener("click", function () {
+
+                    // Título de la tarjeta seleccionada
+                    titulo.textContent =
+                        tarjeta.querySelector("h3").textContent.trim();
+
+                    // Crear la fotografía de la ventana
+                    const imagen = document.createElement("img");
+
+                    imagen.src = tarjeta.dataset.foto;
+                    imagen.alt = tarjeta.dataset.alt;
+                    imagen.className = "imagen-modal";
+
+                    // Crear el contenedor de los textos
+                    const textos = document.createElement("div");
+                    textos.className = "detalle-texto";
+
+                    // Agregar resumen y párrafos completos
+                    tarjeta.querySelectorAll(
+                        ".resumen-negocio, .contenido-oculto p"
+                    ).forEach(function (parrafo) {
+
+                        textos.appendChild(parrafo.cloneNode(true));
+
+                    });
+
+                    // Crear la distribución horizontal
+                    const contenido = document.createElement("div");
+                    contenido.className = "detalle-negocio";
+
+                    contenido.appendChild(imagen);
+                    contenido.appendChild(textos);
+
+                    informacion.replaceChildren(contenido);
+
+                    // Abrir ventana
+                    ventana.showModal();
+
+                });
+
+            });
+
+            // Cerrar con el botón X
+            botonCerrar.addEventListener("click", function () {
+                ventana.close();
+            });
+
+            // Cerrar al hacer clic fuera del contenido
+            ventana.addEventListener("click", function (evento) {
+                if (evento.target === ventana) {
+                    ventana.close();
+                }
+            });
+
+        });
+    </script>
+
+</body>
+</html>

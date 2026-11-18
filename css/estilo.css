@@ -1,0 +1,861 @@
+
+body {
+    background-color: #0B1220;
+    color: #F8FAFC;
+    font-family: Arial, sans-serif;
+}
+nav a {
+    color: #2DD4BF;
+    text-decoration: none;
+    text-align: center;
+    padding: 15px 10px;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+header {
+    background-color: #142B49;
+    padding: 30px;
+    border-radius: 12px;
+}
+nav {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    width: 100%;
+}
+nav a:hover,
+nav a:focus-visible,
+nav a.activo {
+    background-color: #294866;
+    color: #FFFFFF;
+    text-decoration: none;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+}
+main {
+    max-width: 1100px;
+    margin: 30px auto;
+    padding: 20px;
+}
+.banner {
+.video-fondo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -2;
+}
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+    background-color: #142B49;
+    padding: 100px 30px;
+    text-align: center;
+    border-radius: 15px;
+    margin-bottom: 30px;
+    min-height: 250px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.banner h2 {
+    color: #5FFFE0;
+    font-size: 40px;
+    font-weight: 800;
+    margin-bottom: 20px;
+    text-shadow:
+        0 2px 8px rgba(0, 0, 0, 0.9),
+        0 0 20px rgba(0, 194, 178, 0.5);
+}
+.imagen-tecnologia {
+    max-width: 100%;
+    height: auto;
+    border-radius: 15px;
+    display: block;
+}
+.contenido-tecnologia {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    align-items: center;
+    background-color: #142B49;
+    padding: 25px;
+    border-radius: 15px;
+}
+@media (max-width: 768px) {
+    .contenido-tecnologia {
+        grid-template-columns: 1fr;
+    }
+}
+.banner::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        90deg,
+        rgba(11, 18, 32, 0.80),
+        rgba(20, 43, 73, 0.45),
+        rgba(11, 18, 32, 0.80)
+    );
+    z-index: -1;
+}
+.banner p {
+    color: #FFFFFF;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 1.6;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.95);
+}
+header h1 {
+    text-align: center;
+}
+.tarjeta-interactiva {
+    background-color: #142B49;
+    padding: 30px;
+    border-radius: 15px;
+    margin-bottom: 30px;
+    position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.tarjeta-interactiva:hover {
+    transform: translateY(-6px) scale(1.03);
+    box-shadow: 0 15px 35px rgba(0, 194, 178, 0.25);
+    z-index: 1;
+}
+.contenido-tecnologia > h2 {
+    grid-column: 1 / -1;
+    text-align: center;
+    margin: 0 0 10px;
+    color: #FFFFFF;
+}
+.contenido-tecnologia > h3 {
+    grid-column: 1 / -1;
+    text-align: center;
+    margin: 0 0 10px;
+    color: #FFFFFF;
+    font-size: 26px;
+}
+
+.intro-sociedad-contenido {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    align-items: center;
+}
+
+.video-sociedad iframe {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border: none;
+    border-radius: 12px;
+    display: block;
+}
+@media (max-width: 768px) {
+    .intro-sociedad-contenido {
+        grid-template-columns: 1fr;
+    }
+}
+.areas-impacto {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 20px;
+}
+
+.areas-impacto h2 {
+    text-align: left;
+    margin-bottom: 25px;
+    color: #ffffff;
+}
+
+.contenedor-tarjetas {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.tarjeta-area {
+    background-color: #142B49;
+    padding: 20px;
+    border-radius: 18px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.tarjeta-area h3 {
+    color: #ffffff;
+    margin-bottom: 15px;
+    font-size: 28px;
+}
+
+.imagen-area {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 15px;
+    margin-bottom: 15px;
+}
+
+.tarjeta-area p {
+    text-align: left;
+    color: #F8FAFC;
+    line-height: 1.6;
+    margin-bottom: 12px;
+    font-size: 16px;
+}
+
+.tarjeta-area:hover {
+    transform: translateY(-8px) scale(1.03);
+    box-shadow: 0 15px 35px rgba(0, 194, 178, 0.25);
+}.introduccion-negocios h2 {
+    text-align: center;
+    color: #5FFFE0;
+    margin-bottom: 25px;
+}
+.introduccion-negocios p {
+    line-height: 1.8;
+    margin-bottom: 18px;
+}
+.transformacion-negocios {
+    background-color: #17345a;
+    border-radius: 25px;
+    padding: 40px;
+    margin: 40px 0;
+    position: relative;
+    overflow: visible;
+}
+
+.contenido-transformacion {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.texto-transformacion {
+    flex: 1;
+}
+
+.texto-transformacion h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #ffffff;
+}
+.texto-transformacion p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 18px;
+    color: #f8fafc;
+}
+
+/* TARJETA TRANSFORMACIÓN DIGITAL */
+
+.transformacion-negocios {
+    background-color: #142B49;
+    border-radius: 25px;
+    padding: 35px;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Texto y video en una sola tarjeta */
+.transformacion-negocios .contenido-transformacion {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 210px;
+    align-items: center;
+    gap: 25px;
+}
+
+/* Información del negocio */
+.transformacion-negocios .texto-transformacion {
+    min-width: 0;
+    max-width: none;
+    position: relative;
+    z-index: 2;
+}
+
+/* VIDEO VERTICAL DE TAMAÑO MODERADO */
+.transformacion-negocios .video-transformacion {
+    display: block;
+    width: 190px;
+    height: 338px;
+    object-fit: cover;
+    justify-self: center;
+    border: none;
+    border-radius: 0;
+
+    /* Degradado para integrar el video */
+    -webkit-mask-image: radial-gradient(
+        ellipse at center,
+        black 60%,
+        transparent 100%
+    );
+    mask-image: radial-gradient(
+        ellipse at center,
+        black 60%,
+        transparent 100%
+    );
+}
+
+/* Diseño para celulares */
+@media (max-width: 768px) {
+    .transformacion-negocios .contenido-transformacion {
+        grid-template-columns: 1fr;
+    }
+
+    .transformacion-negocios .video-transformacion {
+        width: 180px;
+        height: 320px;
+        margin: 10px auto 0;
+    }
+}
+
+/* TÍTULO DESTACADO DE TRANSFORMACIÓN DIGITAL */
+
+.transformacion-negocios .texto-transformacion h2 {
+    color: #6DFFE9;
+    font-size: clamp(22px, 2.2vw, 30px);
+    font-weight: 800;
+    line-height: 1.3;
+    text-align: left;
+
+    /* Franja degradada */
+    background: linear-gradient(
+        90deg,
+        rgba(45, 212, 191, 0.23),
+        rgba(45, 212, 191, 0.02)
+    );
+
+    /* Línea luminosa */
+    border-left: 5px solid #2DD4BF;
+
+    /* Espaciado y forma */
+    padding: 15px 20px;
+    border-radius: 10px;
+    margin-bottom: 25px;
+}
+
+/* DISEÑO COMPACTO DE LAS TARJETAS DE NEGOCIOS */
+
+.areas-negocios {
+    background-color: #0B1220;
+    padding: 20px;
+    border-radius: 20px;
+    margin: 35px 0;
+}
+
+.areas-negocios h2 {
+    color: #FFFFFF;
+    font-size: 25px;
+    margin-bottom: 15px;
+}
+
+/* Tres tarjetas en una sola fila */
+
+.areas-negocios .contenedor-negocios {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 15px;
+}
+
+/* Tamaño de las tarjetas */
+
+.areas-negocios .tarjeta-negocio {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    min-width: 0;
+    min-height: 145px;
+    padding: 18px;
+    margin: 0;
+    background-color: #142B49;
+    border-radius: 15px;
+    box-sizing: border-box;
+    cursor: default;
+}
+
+/* Números turquesas */
+
+.areas-negocios .numero-negocio {
+    color: #5FFFE0;
+    font-size: 20px;
+    font-weight: bold;
+    margin: 0;
+}
+
+/* Iconos */
+
+.areas-negocios .icono-negocio {
+    display: block;
+    font-size: 23px;
+    line-height: 1;
+    margin: 3px 0;
+}
+
+/* Títulos */
+
+.areas-negocios .tarjeta-negocio h3 {
+    color: #FFFFFF;
+    font-size: 16px;
+    text-align: left;
+    margin: 0;
+}
+
+/* Ocultar los párrafos largos */
+
+.areas-negocios .tarjeta-negocio p {
+    display: none;
+}
+
+/* Mostrar solamente el resumen */
+
+.areas-negocios .tarjeta-negocio p:first-of-type {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    overflow: hidden;
+    color: #CBD5E1;
+    font-size: 13px;
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* Diseño adaptable */
+
+@media (max-width: 900px) {
+    .areas-negocios .contenedor-negocios {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* INDICADOR VER INFORMACIÓN */
+
+.areas-negocios .indicador-clic {
+    display: inline-block;
+    position: relative;
+    align-self: flex-start;
+    background: #2563EB;
+    color: white;
+    padding: 10px 25px 10px 14px;
+    border-radius: 9px;
+    font-size: 13px;
+    font-weight: bold;
+    margin-top: auto;
+    box-shadow: 0 5px 15px rgba(37, 99, 235, 0.25);
+}
+
+/* CURSOR BLANCO */
+
+.cursor-animado {
+    position: absolute;
+    right: -8px;
+    bottom: -12px;
+    width: 22px;
+    height: 28px;
+    background: white;
+
+    clip-path: polygon(
+        0 0,
+        0 100%,
+        25% 75%,
+        50% 100%,
+        70% 90%,
+        45% 66%,
+        100% 65%
+    );
+
+    animation: cursor-click 1.8s ease-in-out infinite;
+}
+
+/* MOVIMIENTO AUTOMÁTICO DEL CURSOR */
+
+@keyframes cursor-click {
+    0%, 100% {
+        transform: translate(12px, 12px) scale(1);
+    }
+
+    40% {
+        transform: translate(0, 0) scale(1);
+    }
+
+    55% {
+        transform: translate(0, 0) scale(0.80);
+    }
+
+    70% {
+        transform: translate(4px, 4px) scale(1);
+    }
+}
+
+/* Respetar preferencias de movimiento */
+@media (prefers-reduced-motion: reduce) {
+    .cursor-animado {
+        animation: none;
+    }
+}
+
+/* VENTANA EMERGENTE DE NEGOCIOS */
+
+.ventana-negocio {
+    width: min(650px, 90vw);
+    max-height: 85vh;
+    box-sizing: border-box;
+    overflow-y: auto;
+    position: fixed;
+    background: #142B49;
+    color: #FFFFFF;
+    padding: 40px;
+    border: 2px solid #2DD4BF;
+    border-radius: 22px;
+    box-shadow: 0 25px 70px rgba(0, 0, 0, 0.5);
+}
+
+/* Fondo oscuro y desenfocado */
+.ventana-negocio::backdrop {
+    background: rgba(5, 10, 22, 0.72);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+/* Título de la ventana */
+.ventana-negocio h2 {
+    color: #5FFFE0;
+    font-size: 28px;
+    margin: 0 35px 25px 0;
+}
+
+/* Información completa */
+.ventana-negocio p {
+    color: #F8FAFC;
+    font-size: 17px;
+    line-height: 1.8;
+    margin-bottom: 18px;
+}
+
+/* Botón X para cerrar */
+.cerrar-ventana {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    border: none;
+    border-radius: 50%;
+    background: #294866;
+    color: #FFFFFF;
+    font-size: 26px;
+    cursor: pointer;
+}
+
+.cerrar-ventana:hover {
+    background: #2DD4BF;
+    color: #0B1220;
+}
+
+/* Indicar que las tarjetas son interactivas */
+.areas-negocios .tarjeta-negocio {
+    cursor: pointer;
+}
+
+.areas-negocios .tarjeta-negocio:focus-visible {
+    outline: 3px solid #5FFFE0;
+    outline-offset: 3px;
+}
+
+/* OCULTAR IMÁGENES EN LAS TARJETAS PEQUEÑAS */
+
+.areas-negocios .tarjeta-negocio img.imagen-detalle-negocio {
+    display: none !important;
+}
+
+/* MOSTRAR IMÁGENES EN LA VENTANA EMERGENTE */
+
+.ventana-negocio .detalle-negocio img.imagen-detalle-negocio {
+    display: block !important;
+    width: 100%;
+    max-width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 15px;
+    margin: 0;
+}
+
+/* FOTO A LA IZQUIERDA Y TEXTO A LA DERECHA */
+
+.ventana-negocio .detalle-negocio {
+    display: grid;
+    grid-template-columns: 40% 1fr;
+    gap: 25px;
+    align-items: center;
+}
+
+/* CELULARES */
+
+@media (max-width: 768px) {
+    .ventana-negocio .detalle-negocio {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* TABLA COMPARATIVA DE NEGOCIOS */
+
+.comparativa-negocios {
+    margin: 45px 0;
+    padding: 30px;
+    background: #142B49;
+    border-radius: 20px;
+}
+
+.comparativa-negocios h2 {
+    color: #5FFFE0;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.comparativa-negocios p {
+    color: #F8FAFC;
+    line-height: 1.7;
+    margin-bottom: 25px;
+}
+
+.tabla-contenedor {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.comparativa-negocios table {
+    width: 100%;
+    min-width: 680px;
+    border-collapse: collapse;
+    color: #FFFFFF;
+}
+
+.comparativa-negocios th,
+.comparativa-negocios td {
+    padding: 17px;
+    border-bottom: 1px solid #355170;
+    text-align: left;
+    vertical-align: top;
+    line-height: 1.5;
+}
+
+.comparativa-negocios thead {
+    background: #236477;
+    color: #FFFFFF;
+}
+
+.comparativa-negocios tbody tr:hover {
+    background: #294866;
+    transition: background 0.3s ease;
+}
+
+/* FORMULARIO DE CONTACTO */
+
+.seccion-contacto {
+    background: #142B49;
+    border-radius: 22px;
+    padding: 40px;
+    max-width: 700px;
+    margin: 40px auto;
+    box-sizing: border-box;
+}
+
+.seccion-contacto h2 {
+    color: #5FFFE0;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.seccion-contacto > p {
+    color: #CBD5E1;
+    text-align: center;
+    line-height: 1.7;
+    margin-bottom: 30px;
+}
+
+#formulario-contacto {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+#formulario-contacto label {
+    font-weight: bold;
+    color: #FFFFFF;
+}
+
+#formulario-contacto input,
+#formulario-contacto textarea {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 14px;
+    background: #0B1220;
+    color: #FFFFFF;
+    border: 1px solid #355170;
+    border-radius: 10px;
+    font: inherit;
+}
+
+#formulario-contacto input:focus,
+#formulario-contacto textarea:focus {
+    outline: 2px solid #2DD4BF;
+    border-color: #2DD4BF;
+}
+
+#formulario-contacto button {
+    background: #2DD4BF;
+    color: #0B1220;
+    border: none;
+    border-radius: 10px;
+    padding: 15px;
+    margin-top: 15px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+#formulario-contacto button:hover {
+    background: #5FFFE0;
+    transform: translateY(-3px);
+}
+
+@media (max-width: 768px) {
+    .seccion-contacto {
+        padding: 25px 20px;
+    }
+}
+
+/* VENTANA PERSONALIZADA DE CONFIRMACIÓN */
+
+.ventana-confirmacion {
+    width: min(480px, 90vw);
+    max-height: 85vh;
+    overflow-y: auto;
+    box-sizing: border-box;
+    padding: 40px 30px;
+
+    background-color: #142B49;
+    color: #FFFFFF;
+
+    border: 2px solid #2DD4BF;
+    border-radius: 22px;
+
+    text-align: center;
+
+    box-shadow: 0 25px 70px rgba(0, 0, 0, 0.5);
+}
+
+/* Fondo oscuro y desenfocado */
+
+.ventana-confirmacion::backdrop {
+    background: rgba(5, 10, 22, 0.75);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+/* Animación de entrada */
+
+.ventana-confirmacion[open] {
+    animation: aparecer-confirmacion 0.35s ease-out;
+}
+
+@keyframes aparecer-confirmacion {
+    from {
+        opacity: 0;
+        transform: scale(0.85) translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+/* Icono de verificación */
+
+.icono-confirmacion {
+    width: 75px;
+    height: 75px;
+    margin: 0 auto 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+    background-color: rgba(45, 212, 191, 0.15);
+
+    color: #5FFFE0;
+    font-size: 42px;
+    font-weight: bold;
+}
+
+/* Título */
+
+.ventana-confirmacion h2 {
+    color: #5FFFE0;
+    font-size: 25px;
+    line-height: 1.3;
+    margin-bottom: 20px;
+}
+
+/* Párrafos */
+
+.ventana-confirmacion p {
+    color: #FFFFFF;
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+/* Aviso de demostración */
+
+.ventana-confirmacion .aviso-demostracion {
+    color: #CBD5E1;
+    font-size: 14px;
+}
+
+/* Botón Aceptar */
+
+#cerrar-confirmacion {
+    display: block;
+    width: 100%;
+
+    margin-top: 25px;
+    padding: 13px;
+
+    background: #2DD4BF;
+    color: #0B1220;
+
+    border: none;
+    border-radius: 10px;
+
+    font-size: 16px;
+    font-weight: bold;
+
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+#cerrar-confirmacion:hover {
+    background: #5FFFE0;
+}
+
+/* Accesibilidad */
+
+#cerrar-confirmacion:focus-visible {
+    outline: 3px solid white;
+    outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .ventana-confirmacion[open] {
+        animation: none;
+    }
+}
